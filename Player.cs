@@ -44,6 +44,7 @@ public class Player : MonoBehaviour
    
     public void HighScore()
     {
+        //set a high score
         if (PlayerPrefs.GetInt("score") > PlayerPrefs.GetInt("HScore"))
         {
             int h = PlayerPrefs.GetInt("score");
@@ -71,6 +72,7 @@ public class Player : MonoBehaviour
             }
             return;
         }
+        //change color when player touches color changer
         if(collision.tag == "ColorChanger")
         {
             setRandomColor();
@@ -78,7 +80,7 @@ public class Player : MonoBehaviour
             Instantiate(colorChanger, new Vector2(transform.position.x, transform.position.y + 10f), transform.rotation);
             return;
         }
-
+          //if player touch different color then player will die and new scene open
         if(collision.tag != currentColor)
         {
             SceneManager.LoadScene(2);
@@ -86,6 +88,7 @@ public class Player : MonoBehaviour
         }
         
     }
+    //random color setup
     void setRandomColor()
     {
         int rand = Random.Range(0, 4);
