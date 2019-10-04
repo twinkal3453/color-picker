@@ -21,14 +21,12 @@ public class Player : MonoBehaviour
     public Text scoreText;
     public DeathMenu deathMenu;
 
-
-    //public Deathmenu deathmenu;
-
    //using this for initialization
     void Start()
     {
         setRandomColor();
-        //PlayerPrefs.DeleteAll();
+        //if you want to reset score whenever you start
+        PlayerPrefs.DeleteAll();
     }
 
     // Update is called once per frame
@@ -43,13 +41,7 @@ public class Player : MonoBehaviour
         scoreText.text = score.ToString();
 
     }
-   // public void Play()
-    //{
-       // i++;
-     //  HScore.text = score.ToString();
-     //   PlayerPrefs.SetInt("score", score);
-     //   HighScore();
-   // }
+   
     public void HighScore()
     {
         if (PlayerPrefs.GetInt("score") > PlayerPrefs.GetInt("HScore"))
@@ -64,7 +56,6 @@ public class Player : MonoBehaviour
         if(collision.tag == "Scored")
         {
             score = score + 5;
-           // deathMenu.ToggleEndMenu(score);
             HScore.text = score.ToString();
             PlayerPrefs.SetInt("score", score);
             HighScore();
