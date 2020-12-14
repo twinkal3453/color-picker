@@ -91,9 +91,9 @@ public class Player : MonoBehaviour
     //random color setup
     void setRandomColor()
     {
-        int rand = Random.Range(0, 4);
+        int rd = Random.Range(0, 4);
 
-        switch (rand)
+        switch (rd)
         {
             case 0:
                 currentColor = "Blue";
